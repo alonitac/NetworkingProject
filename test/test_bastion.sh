@@ -1,4 +1,4 @@
-#!/bin/bash
+coo#!/bin/bash
 
 echo -e "\n\n\n-----------------------------------------------------------------------------------------------------------------"
 echo "Running Test Case I: Connect to the public instance using the SSH private key provided to the automated test in the PUBLIC_INSTANCE_SSH_KEY secret"
