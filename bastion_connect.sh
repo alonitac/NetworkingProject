@@ -27,6 +27,7 @@ fi
 
 
 
+
 if [ -z $KEY_PATH ]; then
    echo "KEY_PATH env var is expected"
    exit 4
