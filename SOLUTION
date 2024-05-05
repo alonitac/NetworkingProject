@@ -11,6 +11,7 @@ Default gateway IP
 
 
 
+
 DHCP IP allocation sys-logs
 -------------------
 2024-05-03T11:19:02.489052+00:00 ip-10-0-0-145 dhcpcd[433]: enX0: offered 10.0.0.145 from 10.0.0.1
