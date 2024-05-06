@@ -4,7 +4,16 @@
     ##echo "Usage: $0 <public_ip> <private_ip>"
    ## exit 5
 ##fi
+if [ ! -n "$KEY_PATH" ]; then
+   echo "KEY_PATH env var is expected"
+   exit 5
+fi
 
+
+if [ $# -lt 1 ]; then
+    echo "Please provide bastion IP address"
+    exit 5
+fi
 
 if [ $# -eq 1 ]; then
    ssh -i $KEY_PATH ubuntu@$1
@@ -28,16 +37,6 @@ if [ $# -eq 2 ]; then
 fi
 
 
-if [ -z $KEY_PATH ]; then
-   echo "KEY_PATH env var is expected"
-   exit 5
-fi
-
-
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <public_ip> <private_ip>"
-    exit 5
-fi
 
 
 ##public_ip=$1
