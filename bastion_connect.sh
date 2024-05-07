@@ -20,7 +20,6 @@ if [ $# -eq 1 ]; then
    exit 5
 fi
 
-
 if [ $# -eq 3 ]; then 
    ssh -i $KEY_PATH -N -L 2222:$2:22 ubuntu@"$1" &
    sleep 5
