@@ -21,13 +21,13 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ $# -eq 3 ]; then 
-   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/new-key.pem -t ubuntu@$2 $3"
+   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/key -t ubuntu@$2 $3"
    exit 5
 fi
 
 
 if [ $# -eq 2 ]; then 
-   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/new-key.pem -t ubuntu@$2"
+   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/key -t ubuntu@$2"
    exit 5
 fi
 
