@@ -4,6 +4,9 @@
     ##echo "Usage: $0 <public_ip> <private_ip>"
    ## exit 5
 ##fi
+
+key=~/key
+
 if [ ! -n "$KEY_PATH" ]; then
    echo "KEY_PATH env var is expected"
    exit 5
@@ -21,13 +24,13 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ $# -eq 3 ]; then 
-   ssh -tt -i $KEY_PATH ubuntu@$1 "ssh -tt -i ~/key ubuntu@$2 $3"
+   ssh -tt -i $KEY_PATH ubuntu@$1 "ssh -tt -i /home/ubuntu/key ubuntu@$2 $3"
    exit 5
 fi
 
 
 if [ $# -eq 2 ]; then 
-   ssh -tt -i $KEY_PATH  ubuntu@$1 "ssh -tt -i ~/key ubuntu@$2"
+   ssh -tt -i $KEY_PATH  ubuntu@$1 "ssh -tt -i /home/ubuntu/key ubuntu@$2"
    exit 5
 fi
 
