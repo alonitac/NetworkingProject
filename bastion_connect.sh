@@ -16,18 +16,18 @@ if [ $# -lt 1 ]; then
 fi
 
 if [ $# -eq 1 ]; then
-   ssh -i $KEY_PATH ubuntu@$1
+   ssh -t -i $KEY_PATH ubuntu@$1
    exit 5
 fi
 
 if [ $# -eq 3 ]; then 
-   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/key -t ubuntu@$2 $3"
+   ssh -t -i $KEY_PATH ubuntu@$1 "ssh -t -i ~/key ubuntu@$2 $3"
    exit 5
 fi
 
 
 if [ $# -eq 2 ]; then 
-   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/key -t ubuntu@$2"
+   ssh -t -i $KEY_PATH  ubuntu@$1 "ssh -t -i ~/key ubuntu@$2"
    exit 5
 fi
 
