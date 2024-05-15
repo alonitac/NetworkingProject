@@ -17,13 +17,12 @@ echo "$serverCert" > ~/cert.pem
 echo "$sessionID"> ~/NEWPR.pem
 
 
-value=$(openssl verify -CAfile ~/cert-ca-aws.pem ~/cert.pem )
-if [ "$value" ];then
-      echo "cert.pem: OK"
-else
-      echo "Server Certificate is invalid."
-      exit 5
+echo "Verifying Server Certificate..."
+if ! openssl verify -CAfile ~/cert-ca-aws.pem ~/cert.pem > /dev/null; then
+    echo "Server Certificate is invalid."
+    exit 5
 fi
+echo "cert.pem: OK"
 
 touch ~/main-key
 openssl rand -base64 32 > ~/main-key
@@ -48,4 +47,5 @@ if [ "$the_sample_message_check" != "$samplemessage" ]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
 fi
+
 echo "Client-Server TLS handshake has been completed successfully."
