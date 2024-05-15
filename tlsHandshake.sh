@@ -14,7 +14,7 @@ sessionID=$(echo "$TheHello" | jq -r '.sessionID')
 serverCert=$(echo "$TheHello" | jq -r '.serverCert')
 
 echo "$serverCert" > ~/cert.pem
-echo "$sessionID"> ~/NEWPR.pem
+
 
 
 echo "Verifying Server Certificate..."
@@ -40,10 +40,15 @@ PrintNew=$(curl -s -X POST \
 
 encryptedSampleMessage=$(echo "$PrintNew" | jq -r '.encryptedSampleMessage')
 
-the_sample_message_check=$(echo "$encryptedSampleMessage" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -k "$master")
+the_sample_message_check=$(echo "$encryptedSampleMessage" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -k "$master" 2>/dev/null)
 samplemessage="Hi server, please encrypt me and send to client!"
 
-if [ "$the_sample_message_check" != "$samplemessage" ]; then
+if [ -z "$the_sample_message_check" ]; then
+    echo "Server symmetric encryption using the exchanged master-key has failed."
+    exit 6
+fi
+
+if [ "$the_sample_message_check" != "Hi server, please encrypt me and send to client!" ]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
 fi
