@@ -20,18 +20,15 @@ fi
 
 if [ $# -eq 1 ]; then
    ssh -tt -i $KEY_PATH ubuntu@$1
-   exit 5
 fi
 
 if [ $# -eq 3 ]; then 
    ssh -tt -i $KEY_PATH ubuntu@$1 "ssh -tt -i /home/ubuntu/key ubuntu@$2 '$3'"
-   exit 5
 fi
 
 
 if [ $# -eq 2 ]; then 
    ssh -tt -i $KEY_PATH  ubuntu@$1 "ssh -tt -i /home/ubuntu/key ubuntu@$2"
-   exit 5
 fi
 
 
