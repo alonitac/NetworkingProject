@@ -13,24 +13,20 @@ if [ ! -n "$KEY_PATH" ]; then
 fi
 
 
-if [ $# -lt 1 ]; then
+if [ -z "$1" ]; then
     echo "Please provide bastion IP address"
     exit 5
 fi
 
-if [ $# -eq 1 ]; then
-   ssh -tt -i $KEY_PATH ubuntu@$1
+if [ -z "$2" ]; then
+   ssh  -i $KEY_PATH -t ubuntu@$1
 fi
 
-if [ $# -eq 3 ]; then 
-   ssh -tt -i $KEY_PATH ubuntu@$1 "ssh -tt -i /home/ubuntu/key ubuntu@$2 '$3'"
+if [ -z "$3" ]; then
+   ssh -i $KEY_PATH  -t ubuntu@$1 "ssh -i /home/ubuntu/key -t ubuntu@$2"
+else
+   ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i /home/ubuntu/key -t ubuntu@$2 $3"
 fi
-
-
-if [ $# -eq 2 ]; then 
-   ssh -tt -i $KEY_PATH  ubuntu@$1 "ssh -tt -i /home/ubuntu/key ubuntu@$2"
-fi
-
 
 
 

@@ -15,10 +15,8 @@ serverCert=$(echo "$TheHello" | jq -r '.serverCert')
 
 echo "$serverCert" > ~/cert.pem
 
-
-
 echo "Verifying Server Certificate..."
-if ! openssl verify -CAfile ~/cert-ca-aws.pem ~/cert.pem > /dev/null; then
+if ! openssl verify -CAfile ~/cert-ca-aws.pem ~/cert.pem ; then
     echo "Server Certificate is invalid."
     exit 5
 fi
@@ -48,7 +46,7 @@ if [ -z "$the_sample_message_check" ]; then
     exit 6
 fi
 
-if [ "$the_sample_message_check" != "Hi server, please encrypt me and send to client!" ]; then
+if [ "$the_sample_message_check" != "$samplemessage" ]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
 fi
