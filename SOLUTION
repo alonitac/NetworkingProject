@@ -1,16 +1,15 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+ip-10-0-0-54.ec2.internal
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
-
+127.0.0.53
