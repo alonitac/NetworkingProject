@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if [ -z "$KEY_PATH" ]
 then
 echo "KEY_PATH env var is expected"
@@ -20,6 +19,6 @@ fi
 
 if [ -z "$3" ]
 then
-ssh -i $KEY_PATH  -t ubuntu@$1 "ssh -i ~/key.pem  -t ubuntu@$2"
+ssh -i $KEY_PATH  -t ubuntu@$1 "ssh -i ~/newkey -t ubuntu@$2"
 fi
-ssh -i $KEY_PATH  -t ubuntu@$1 "ssh -i ~/key.pem  -t ubuntu@$2" "$3" 
+ssh -i $KEY_PATH  -t ubuntu@$1 "ssh -i ~/newkey  -t ubuntu@$2" "$3" 

@@ -14,6 +14,7 @@ if scp -i ~/key.pem ~/newkey.pub ubuntu@$1:~; then
    ssh -i ~/key.pem ubuntu@$1 'cat ~/newkey.pub >> ~/.ssh/authorized_keys'
 else
   if [ $? -eq 1 ]; then
+    chmod u+x oldkey
     scp -i ~/oldkey ~/newkey.pub ubuntu@$1:~ 
     ssh -i ~/oldkey ubuntu@$1 'cat ~/newkey.pub >> ~/.ssh/authorized_keys'
   fi
