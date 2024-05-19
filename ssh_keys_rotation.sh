@@ -17,7 +17,4 @@ else
     scp -i ~/oldkey ~/newkey.pub ubuntu@$1:~ 
     ssh -i ~/oldkey ubuntu@$1 'cat ~/newkey.pub >> ~/.ssh/authorized_keys'
   fi
-fi
-
-rm oldkey
-rm oldkey.pub
+fi  
