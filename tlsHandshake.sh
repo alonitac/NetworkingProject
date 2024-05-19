@@ -15,6 +15,12 @@ serverCert=$(echo "$TheHello" | jq -r '.serverCert')
 
 echo "$serverCert" > ~/cert.pem
 
+if ! [ -e ~/cert-ca-aws.pem ]; then
+     wget -P ~/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
+fi
+
+
+
 echo "Verifying Server Certificate..."
 if ! openssl verify -CAfile ~/cert-ca-aws.pem ~/cert.pem ; then
     echo "Server Certificate is invalid."
