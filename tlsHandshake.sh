@@ -2,6 +2,10 @@
 
 $SAMPLE_MESSAGE="Hi server, please encrypt me and send to client!"
 
+if [ -e ~/cert-ca-aws.pem ]
+  wget -P ~/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
+fi
+
 CLIENT_HELLO=$(curl -X POST  \  -H "Content-Type: application/json" \
   -d '{ "version": "1.3",
         "ciphersSuites": [ "TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256" ], 
