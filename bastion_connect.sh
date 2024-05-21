@@ -3,7 +3,7 @@
 #  44.200.79.40 $1
 #10.0.1.166 $2
 
-export KEY_PATH=/home/amir/Desktop/NetworkingProject/myKEY1.pem
+export KEY_PATH=/home/amir/Desktop/myKEY1.pem
 
 if [ $# -eq 1 ]; then
    ssh -i $KEY_PATH ubuntu@$1
