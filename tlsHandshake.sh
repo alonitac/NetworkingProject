@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if ! [ -e ~/cert-ca-aws.pem ]; then
+     wget -P ~/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
+fi
+
 clientHello=$(curl -X POST \
     -H "Content-Type: application/json" \
     -d '{
@@ -9,16 +13,10 @@ clientHello=$(curl -X POST \
     }' \
     http://$1:8080/clienthello | jq '.')
 
-
 sessionID=$(echo "$clientHello" | jq -r '.sessionID')
 serverCert=$(echo "$clientHello" | jq -r '.serverCert')
 
-
 echo "$serverCert" > ~/cert.pem
-
-if ! [ -e ~/cert-ca-aws.pem ]; then
-     wget -P ~/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
-fi
 
 echo "Verifying Server Certificate..."
 if ! openssl verify -CAfile ~/cert-ca-aws.pem ~/cert.pem ; then
@@ -58,4 +56,3 @@ if [ "$sampleMessageCheck" != "$sampleMessage" ]; then
 fi
 
 echo "Client-Server TLS handshake has been completed successfully."
-
