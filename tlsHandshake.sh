@@ -1,7 +1,9 @@
 #/bin/bash
 
+rm -rf temp/
+
 if [ $# -eq 1 ]; then
-	if ! [ 0d ./temp/ ]; then
+	if ! [ d ./temp/ ]; then
 		mkdir temp
 	fi
 	isRun=$(curl $1:8080/status)
