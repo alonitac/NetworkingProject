@@ -1,7 +1,7 @@
 #/bin/bash
 
 if [ $# -eq 1 ]; then
-
+	rm -rf temp/
 	mkdir temp
 
 	if [ "$(curl $1:8080/status)" = "Hi! I'm available, let's start the TLS handshake" ]; then
