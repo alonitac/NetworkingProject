@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(echo $KEY_PATH)$? = 1 ]; then
+if [ -z $(echo $KEY_PATH) ]; then
 	echo "Error: KEY_PATH env var is expected"
 	exit 5
 elif [ $# -eq 1 ]; then
