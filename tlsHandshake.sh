@@ -1,7 +1,7 @@
 #/bin/bash
 
 if [ $# -eq 1 ]; then
-	rm -rf temp/
+#	rm -rf temp/
 	mkdir temp
 
 	if [ "$(curl $1:8080/status)" = "Hi! I'm available, let's start the TLS handshake" ]; then
@@ -16,8 +16,8 @@ if [ $# -eq 1 ]; then
 			wget -P temp/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
 		fi
 
-		openssl verify -CAfile temp/cert-ca-aws.pem temp/cert.pem
 		sample_massage="Hi server, please encrypt me and send to client!"
+		openssl verify -CAfile temp/cert-ca-aws.pem temp/cert.pem
 		if [ $? -eq 0 ]; then
 			openssl rand -base64 32 > temp/key_enc
 			openssl smime -encrypt -aes-256-cbc -in temp/key_enc -outform DER temp/cert.pem | base64 -w 0 > temp/encrypt
@@ -45,4 +45,4 @@ else
 	exit 5
 fi
 
-rm -rf temp/
+#rm -rf temp/
