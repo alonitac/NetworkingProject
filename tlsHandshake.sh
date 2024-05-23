@@ -5,12 +5,12 @@ if [ $# -eq 1 ]; then
 	mkdir temp
 
 	if [ "$(curl $1:8080/status)" = "Hi! I'm available, let's start the TLS handshake" ]; then
-		request=$(curl -v -H "Content-Type: application/json" -d '{"version": "1.3", "ciphersSuites": ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"], "message": "Client Hello"}' $1:8080/clienthello)
-		sessionID=$(echo $request | jq -r .sessionID)
+		request=$(curl -v -H "Content-Type: application/json" -d '{"version": "1.3", "ciphersSuites": ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"], "message": "Client Hello"}' $1:8080/clienthello) > /dev/null
+		sessionID=$(echo $request | jq -r .sessionID) > /dev/null
 		echo $request | jq -r .serverCert > temp/cert.pem
 
 		if ! [ -e ./temp/cert-ca-aws.pem ]; then
-			wget -P temp/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
+			wget -P temp/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem > /dev/null
 		fi
 
 		openssl verify -CAfile temp/cert-ca-aws.pem temp/cert.pem > /dev/null
@@ -18,8 +18,8 @@ if [ $# -eq 1 ]; then
 		if [ $? -eq 0 ]; then
 			openssl rand -base64 32 > temp/key_enc
 			openssl smime -encrypt -aes-256-cbc -in temp/key_enc -outform DER temp/cert.pem | base64 -w 0 > temp/encrypt
-			msg=$(curl -v -H "Content-Type: application/json" -d '{"sessionID": "'"$sessionID"'", "masterKey": "'"$(cat temp/encrypt)"'", "sampleMessage": "'"$sample_massage"'"}' $1:8080/keyexchange | jq -r .encryptedSampleMessage)
-			output=$(echo "$msg" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -k $(cat temp/key_enc))
+			msg=$(curl -v -H "Content-Type: application/json" -d '{"sessionID": "'"$sessionID"'", "masterKey": "'"$(cat temp/encrypt)"'", "sampleMessage": "'"$sample_massage"'"}' $1:8080/keyexchange | jq -r .encryptedSampleMessage) > /dev/null
+			output=$(echo "$msg" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -k $(cat temp/key_enc)) > /dev/null
 		else
 			echo "Server Certificate is invalid."
 			exit 5
