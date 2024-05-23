@@ -8,7 +8,7 @@ elif [ $# -eq 1 ]; then
 elif [ $# -eq  2 ]; then
 	ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/ssh_new_key/new_key.pem -t ubuntu@$2"
 elif [ $# -eq 3 ]; then
-	ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/ssh_new_key/new_key.pem -t ubuntu@$2 $3"
+	ssh -i $KEY_PATH -t ubuntu@$1 "ssh -i ~/ssh_new_key/new_key.pem -t ubuntu@$2 '$3'"
 else
 	exit 5
 fi
