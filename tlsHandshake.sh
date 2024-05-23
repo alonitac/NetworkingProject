@@ -6,6 +6,9 @@ if [ $# -eq 1 ]; then
 
 	if [ "$(curl $1:8080/status)" = "Hi! I'm available, let's start the TLS handshake" ]; then
 		request=$(curl -v -H "Content-Type: application/json" -d '{"version": "1.3", "ciphersSuites": ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"], "message": "Client Hello"}' $1:8080/clienthello) > /dev/null
+		if [ $? -nt 0 ]; then
+			exit 5
+		fi
 		sessionID=$(echo $request | jq -r .sessionID) > /dev/null
 		echo $request | jq -r .serverCert > temp/cert.pem
 
