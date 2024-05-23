@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(echo $KEY_PATH | grep .pem)$? = 1 ]; then
+if [ $(echo $KEY_PATH)$? = 1 ]; then
 	echo "Error: KEY_PATH env var is expected"
 	exit 5
 elif [ $# -eq 1 ]; then
