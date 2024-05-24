@@ -19,12 +19,12 @@ fi
 if [ $num_of_arguments -eq 2 ]; then
    bastion_ip=$1
    private_ip=$2
-   ssh -i "$KEY_PATH" -t ubuntu@$1 "ssh -i Projectinstans2-kp.pem -t ubuntu@$2"
+   ssh -i "$KEY_PATH" -t ubuntu@$1 "ssh -i ~/.ssh/new_key -t ubuntu@$2"
 fi
 
 if [ $num_of_arguments -eq 3 ]; then
    bastion_ip=$1
    private_ip=$2
    command=$3
-   ssh -i "$KEY_PATH" -t ubuntu@$1 "ssh -i Projectinstans2-kp.pem -t ubuntu@$2 '$command'"
+   ssh -i "$KEY_PATH" -t ubuntu@$1 "ssh -i ~/.ssh/new_key -t ubuntu@$2 '$command'"
 fi
