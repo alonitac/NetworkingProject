@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Check if an IP address is provided as an argument
 if [ $# -ne 1 ]; then
     echo "You need to provide the IP address as an argument."
     exit 5
