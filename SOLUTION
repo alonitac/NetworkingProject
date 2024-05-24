@@ -1,16 +1,25 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+2024-05-13T10:25:52.103198+00:00 ip-10-0-0-150 dhcpcd[432]: dhcpcd-10.0.6 starting
+2024-05-13T10:25:52.103202+00:00 ip-10-0-0-150 dhcpcd[435]: DUID 00:01:00:01:2d:d4:a7:24:12:62:50:8d:9b:23
+2024-05-13T10:25:52.103206+00:00 ip-10-0-0-150 dhcpcd[435]: enX0: IAID 50:8d:9b:23
+2024-05-13T10:25:52.103212+00:00 ip-10-0-0-150 dhcpcd[435]: enX0: soliciting a DHCP lease
+2024-05-13T10:25:52.103215+00:00 ip-10-0-0-150 dhcpcd[435]: enX0: offered 10.0.0.150 from 10.0.0.1
+2024-05-13T10:25:52.103218+00:00 ip-10-0-0-150 dhcpcd[435]: enX0: leased 10.0.0.150 for 3600 seconds
+2024-05-13T10:25:52.103222+00:00 ip-10-0-0-150 dhcpcd[435]: enX0: adding route to 10.0.0.0/24
+2024-05-13T10:25:52.103225+00:00 ip-10-0-0-150 dhcpcd[435]: enX0: adding default route via 10.0.0.1
+2024-05-13T10:25:52.103229+00:00 ip-10-0-0-150 dhcpcd[435]: control command: /usr/sbin/dhcpcd --dumplease --ipv4only enX0
+
 
