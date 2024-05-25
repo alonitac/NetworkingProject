@@ -2,7 +2,7 @@
 
 $SAMPLE_MESSAGE="Hi server, please encrypt me and send to client!"
 
-if [ -z ~/cert-ca-aws.pem ]; then
+if [ ! -e ~/cert-ca-aws.pem ]; then
   wget -P ~/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
 fi
 
