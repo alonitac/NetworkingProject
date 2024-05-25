@@ -37,7 +37,7 @@ KEY_EXCHANGE=$(curl -X POST  \  -H "Content-Type: application/json" \
         http://$1:8080/keyexchange | jq -r '.' )
 
 SESSION_ID=$(echo $KEY_EXCHANGE | jq -r '.sessionID')
-ENCRYPTED_SAMPLE_MESSAGE=$(echo $KEY_EXCHANGE | jq -r '.enctyptedSampleMessage')
+ENCRYPTED_SAMPLE_MESSAGE=$(echo $KEY_EXCHANGE | jq -r '.encryptedSampleMessag')
 
 DECODED_ENCRYPTED_SAMPLE_MESSAGE=$(echo $ENCRYPTED_SAMPLE_MESSAGE | base64 -d |openssl enc -e -aes-256-cbc -pbkdf2 -k $MASTER_KEY)
 
