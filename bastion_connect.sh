@@ -1,5 +1,4 @@
 #!/bin/bash
-export KEY_PATH=/home/amir/Desktop/myKEY1.pem
 
 if [ $# -eq 1 ]; then
    ssh -i $KEY_PATH ubuntu@$1
