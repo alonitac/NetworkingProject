@@ -21,4 +21,4 @@ else
     ssh -i ~/oldkey ubuntu@$1 'cat ~/newkey.pub >> ~/.ssh/authorized_keys'
     
   fi
-fi  
+fi
