@@ -1,20 +1,20 @@
 #!/bin/bash
 
 if [ $# -eq 1 ]; then
-   ssh -i $KEY_PATH ubuntu@$1
+   ssh -i $KEY_PATH ubuntu@$1 -t
 fi
 
 
 if [ $# -eq 2 ]; then
 
-  ssh -t -i $KEY_PATH ubuntu@$1 "ssh -i /home/ubuntu/key -t ubuntu@$2"
+  ssh -i $KEY_PATH ubuntu@$1 -t "ssh -i /home/ubuntu/key -t ubuntu@$2"
   
 fi
 
 
 if [ $# -eq 3 ]; then
 
-   ssh -t -i $KEY_PATH ubuntu@$1 "ssh -i /home/ubuntu/key -t ubuntu@$2 $3"
+   ssh -i $KEY_PATH ubuntu@$1 -t "ssh -i /home/ubuntu/key -t ubuntu@$2 $3"
 
 fi
 
