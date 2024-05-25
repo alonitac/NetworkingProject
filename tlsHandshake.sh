@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if ! [ -e ~/cert-ca-aws.pem ]; then
      wget -P ~/ https://alonitac.github.io/DevOpsTheHardWay/networking_project/cert-ca-aws.pem
 fi

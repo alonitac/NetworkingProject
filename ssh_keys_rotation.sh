@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "creating old key copy"
+echo "Creating old key copy"
 cp key old_key
 cp key.pub old_key.pub
 sleep 1
