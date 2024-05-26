@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+#edit
+
 if [ -z $1 ]; then
    echo "Please provide bastion IP address"
    exit 5
