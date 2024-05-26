@@ -1,16 +1,18 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+10.0.0.2
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
-
+2024-05-03T12:48:42.772804+00:00 ip-10-0-0-181 dhcpcd[433]: enX0: offered 10.0.0.181 from 10.0.0.1
+2024-05-03T12:48:42.772808+00:00 ip-10-0-0-181 dhcpcd[433]: enX0: leased 10.0.0.181 for 3600 seconds
+2024-05-03T12:48:42.772811+00:00 ip-10-0-0-181 dhcpcd[433]: enX0: adding route to 10.0.0.0/24
+2024-05-03T12:48:42.772816+00:00 ip-10-0-0-181 dhcpcd[433]: enX0: adding default route via 10.0.0.1
