@@ -1,16 +1,27 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+2024-05-03T11:19:08.606238+00:00 ip-10-0-0-164 dhcpcd[430]: dhcpcd-10.0.6 starting
+2024-05-03T11:19:08.606242+00:00 ip-10-0-0-164 dhcpcd[433]: DUID 00:01:00:01:2d:c7:84:a4:16:ff:c3:52:1f:79
+2024-05-03T11:19:08.606246+00:00 ip-10-0-0-164 dhcpcd[433]: enX0: IAID c3:52:1f:79
+2024-05-03T11:19:08.606250+00:00 ip-10-0-0-164 dhcpcd[433]: enX0: soliciting a DHCP lease
+2024-05-03T11:19:08.606256+00:00 ip-10-0-0-164 dhcpcd[433]: enX0: offered 10.0.0.164 from 10.0.0.1
+2024-05-03T11:19:08.606260+00:00 ip-10-0-0-164 dhcpcd[433]: enX0: leased 10.0.0.164 for 3600 seconds
+2024-05-03T11:19:08.606263+00:00 ip-10-0-0-164 dhcpcd[433]: enX0: adding route to 10.0.0.0/24
+2024-05-03T11:19:08.606267+00:00 ip-10-0-0-164 dhcpcd[433]: enX0: adding default route via 10.0.0.1
+2024-05-03T11:19:08.606271+00:00 ip-10-0-0-164 dhcpcd[433]: control command: /usr/sbin/dhcpcd --dumplease --ipv4only enX0
+2024-05-03T11:19:08.606381+00:00 ip-10-0-0-164 systemd-networkd[503]: enX0: DHCPv4 address 10.0.0.164/24, gateway 10.0.0.1 acquired from 10.0.0.1
+2024-05-03T11:43:46.907729+00:00 ip-10-0-0-164 NetworkManager[1836]: <info>  [1714736626.9067] dhcp: init: Using DHCP client 'internal'
+
 
