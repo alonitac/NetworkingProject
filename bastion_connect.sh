@@ -8,12 +8,9 @@ if [[ -z "${KEY_PATH}" ]]; then
 fi
 
 if [ $# -eq 2 ]; then
-    echo "case 1"
     ssh -i $KEY_PATH ubuntu@$1 "ssh -i /home/ubuntu/private.pem ubuntu@$2"
 elif [ $# -eq 1 ]; then
-    echo "case 2"
     ssh -i $KEY_PATH ubuntu@$1
 elif [ $# -eq 3 ]; then
-    echo "case 3"
     ssh -i $KEY_PATH ubuntu@$1 "ssh -i /home/ubuntu/private.pem ubuntu@$2 $3"
 fi
