@@ -17,4 +17,3 @@ elif [ $# -eq 3 ]; then
     echo "case 3"
     ssh -i $KEY_PATH ubuntu@$1 "ssh -i /home/ubuntu/private.pem ec2-user@$2 $3"
 fi
-
