@@ -1,16 +1,21 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
-
+10.0.0.1
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+2024-05-14T18:30:05.173661+00:00 ip-10-0-0-37 dhcpcd[435]: enX0: IAID 79:41:4e:1b
+2024-05-14T18:30:05.173664+00:00 ip-10-0-0-37 dhcpcd[435]: enX0: soliciting a DHCP lease
+2024-05-14T18:30:05.173669+00:00 ip-10-0-0-37 dhcpcd[435]: enX0: offered 10.0.0.37 from 10.0.0.1
+2024-05-14T18:30:05.173673+00:00 ip-10-0-0-37 dhcpcd[435]: enX0: leased 10.0.0.37 for 3600 seconds
+2024-05-14T18:30:05.173677+00:00 ip-10-0-0-37 dhcpcd[435]: enX0: adding route to 10.0.0.0/24
+2024-05-14T18:30:05.173680+00:00 ip-10-0-0-37 dhcpcd[435]: enX0: adding default route via 10.0.0.1
+
 
