@@ -14,3 +14,13 @@ DHCP IP allocation sys-logs
 -------------------
 <logs-here>
 
+
+
+Public to private num of hops
+-------------------
+<answer-here>
+
+
+DNS queries from the private instance
+-------------------
+<answer-here>
